@@ -1,23 +1,33 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using WilliamHill.Data.Models;
 
 namespace WilliamHill.Data
 {
     public class RiskRepository : IRiskRepository
-    { 
-        public List<int> GetCustomers()
+    {
+        private IRiskDataContext _riskDataContext;
+        public RiskRepository(IRiskDataContext riskDataContext)
         {
-            return new List<int>();
+            _riskDataContext = riskDataContext;
         }
 
-        public List<SettledBet> GetSettledBets()
+        public IEnumerable<int> GetCustomers()
         {
-            return new List<SettledBet>();
+            var settledCustomers = _riskDataContext.SettledBets.Select(s => s.CustomerId);
+            var unsettledCustomers = _riskDataContext.UnsettledBets.Select(s => s.CustomerId);
+
+            return settledCustomers.Union(unsettledCustomers).Distinct();
         }
 
-        public List<UnsettledBet> GetUnSettledBets()
+        public IEnumerable<SettledBet> GetSettledBets(int customerId)
         {
-            return new List<UnsettledBet>();
+            return _riskDataContext.SettledBets.Where (s => s.CustomerId == customerId) ;
+        }
+
+        public IEnumerable<UnsettledBet> GetUnSettledBets(int customerId)
+        {
+            return _riskDataContext.UnsettledBets.Where(s => s.CustomerId == customerId);
         }
     }
 }
