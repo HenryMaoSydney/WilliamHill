@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{2478BFE2-703
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WilliamHill.UnitTest", "WilliamHill.UnitTest\WilliamHill.UnitTest.csproj", "{1B0E048F-2FAB-401E-A661-375B06B4854D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiskProfiler", "RiskProfiler\RiskProfiler.csproj", "{7FB37946-D4D6-4247-A5F1-8CDC7C08D564}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{1B0E048F-2FAB-401E-A661-375B06B4854D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B0E048F-2FAB-401E-A661-375B06B4854D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B0E048F-2FAB-401E-A661-375B06B4854D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FB37946-D4D6-4247-A5F1-8CDC7C08D564}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FB37946-D4D6-4247-A5F1-8CDC7C08D564}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FB37946-D4D6-4247-A5F1-8CDC7C08D564}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FB37946-D4D6-4247-A5F1-8CDC7C08D564}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +52,6 @@ Global
 		{0725383E-44E1-4F89-8817-B1FD92007937} = {87BD1655-3696-4DC5-9AF5-1F1DDEF56C6B}
 		{760DEBA7-448E-4BA5-9B34-626053BC76BB} = {2478BFE2-703D-4A0A-A11F-8B5AE467F6A5}
 		{1B0E048F-2FAB-401E-A661-375B06B4854D} = {87BD1655-3696-4DC5-9AF5-1F1DDEF56C6B}
+		{7FB37946-D4D6-4247-A5F1-8CDC7C08D564} = {2478BFE2-703D-4A0A-A11F-8B5AE467F6A5}
 	EndGlobalSection
 EndGlobal

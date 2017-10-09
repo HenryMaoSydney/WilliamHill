@@ -77,9 +77,14 @@
     <Compile Include="Data\RiskDataContectTester.cs" />
     <Compile Include="Data\RiskRepositoryTester.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RiskProfiler\CustomerProfilerTester.cs" />
     <Compile Include="TestBase.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RiskProfiler\RiskProfiler.csproj">
+      <Project>{7fb37946-d4d6-4247-a5f1-8cdc7c08d564}</Project>
+      <Name>RiskProfiler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WilliamHill.Data\WilliamHill.Data.csproj">
       <Project>{760deba7-448e-4ba5-9b34-626053bc76bb}</Project>
       <Name>WilliamHill.Data</Name>
