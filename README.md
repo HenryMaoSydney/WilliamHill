@@ -16,5 +16,7 @@ This also calculates Customer's average bet
  
 Bet Risk Profiler is more complicated. It depend on 4 conditions 
 The Risk characteristics are risky,  ( highly unusual /  unusual / Normal), Large sum. 
-
+assumption: if customer have no settled bet, it is unsusal ( average bet is 0).
+Unsettled.csv seems not conaining wining/or not information, if we use ToWin as wining. this causes customer with unsettled bets be flagged as risky.
+ 
  

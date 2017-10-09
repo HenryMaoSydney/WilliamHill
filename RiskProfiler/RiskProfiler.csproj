@@ -40,7 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BetProfiler.cs" />
+    <Compile Include="CustomerProfile.cs" />
     <Compile Include="CustomerProfiler.cs" />
+    <Compile Include="ICustomerProfiler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
