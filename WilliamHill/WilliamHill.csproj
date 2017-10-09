@@ -213,6 +213,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Settled.csv" />
+    <Content Include="Unsettled.csv" />
+    <Content Include="WHATechChallenge.pdf" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

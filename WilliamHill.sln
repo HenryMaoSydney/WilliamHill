@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WilliamHill", "WilliamHill\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WilliamHill.Tests", "WilliamHill.Tests\WilliamHill.Tests.csproj", "{0725383E-44E1-4F89-8817-B1FD92007937}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WilliamHill.Data", "WilliamHill.Data\WilliamHill.Data.csproj", "{760DEBA7-448E-4BA5-9B34-626053BC76BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0725383E-44E1-4F89-8817-B1FD92007937}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0725383E-44E1-4F89-8817-B1FD92007937}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0725383E-44E1-4F89-8817-B1FD92007937}.Release|Any CPU.Build.0 = Release|Any CPU
+		{760DEBA7-448E-4BA5-9B34-626053BC76BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{760DEBA7-448E-4BA5-9B34-626053BC76BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{760DEBA7-448E-4BA5-9B34-626053BC76BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{760DEBA7-448E-4BA5-9B34-626053BC76BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
