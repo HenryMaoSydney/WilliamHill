@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
 using WilliamHill.Data.Models;
 
 namespace WilliamHill.Data
 {
     public interface IRiskDataContext
     {
-          List<SettledBet> SettledBets { get; set; }
-          List<UnsettledBet> UnsettledBets { get; set; } 
+        ConcurrentBag<SettledBet> SettledBets { get; set; }
+        ConcurrentBag<UnsettledBet> UnsettledBets { get; set; } 
     }
 }

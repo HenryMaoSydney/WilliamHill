@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using WilliamHill.Data.Models;
 
@@ -13,14 +14,14 @@ namespace WilliamHill.Data
             Load();
         }
 
-        public List<SettledBet> SettledBets { get;    set; }
-        public List<UnsettledBet> UnsettledBets { get;   set; }
+        public ConcurrentBag<SettledBet> SettledBets { get;    set; }
+        public ConcurrentBag<UnsettledBet> UnsettledBets { get;   set; }
 
         // Read csv files
         private void Load()
         {
-            SettledBets = new List<SettledBet>();
-            UnsettledBets = new List<UnsettledBet>();
+            SettledBets = new ConcurrentBag<SettledBet>();
+            UnsettledBets = new ConcurrentBag<UnsettledBet>();
             ReadSettledBetsCSV(_settlementFileLocator.LocateSettleCsv);
             ReadUnSettledBetsCSV(_settlementFileLocator.LocateUnSettleCsv);
         }
