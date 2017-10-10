@@ -15,7 +15,7 @@ namespace WilliamHill.UnitTest.RiskProfiler
         public void IsBetLargeSum_True()
         { 
             var betProfiler = Moq.Create<BetProfiler>(); 
-            var results = betProfiler.GetProfile( new UnsettledBet( ) {ToWin = 1200}, new CustomerProfile( 1, false, 10 ));
+            var results = betProfiler.GetProfile( new UnsettledBet( ) {ToWin = 1200}, new CustomerProfile( 1, false, 10, new List<SettledBet>() ));
             Assert.AreEqual(true, results.IsBetLargeSum);
         }
 
@@ -23,7 +23,7 @@ namespace WilliamHill.UnitTest.RiskProfiler
         public void IsBetLargeSum_False()
         { 
             var betProfiler = Moq.Create<BetProfiler>();
-            var results = betProfiler.GetProfile(new UnsettledBet() { ToWin = 800 }, new CustomerProfile(1, false, 10));
+            var results = betProfiler.GetProfile(new UnsettledBet() { ToWin = 800 }, new CustomerProfile(1, false, 10, new List<SettledBet>()));
             Assert.AreEqual(false, results.IsBetLargeSum);
         }
 
@@ -33,7 +33,7 @@ namespace WilliamHill.UnitTest.RiskProfiler
         { 
             var betProfiler = Moq.Create<BetProfiler>(); 
 
-            var results = betProfiler.GetProfile(new UnsettledBet() { Stake = 2000 }, new CustomerProfile(1, false, 20)); 
+            var results = betProfiler.GetProfile(new UnsettledBet() { Stake = 2000 }, new CustomerProfile(1, false, 20, new List<SettledBet>())); 
             Assert.AreEqual(true, results.IsHighlyUnusual);
         }
 
@@ -41,7 +41,7 @@ namespace WilliamHill.UnitTest.RiskProfiler
         public void IsBetHighlUnusual_false()
         { 
             var betProfiler = Moq.Create<BetProfiler>(); 
-            var results = betProfiler.GetProfile(new UnsettledBet() { Stake = 1000 }, new CustomerProfile(1, false, 20)); 
+            var results = betProfiler.GetProfile(new UnsettledBet() { Stake = 1000 }, new CustomerProfile(1, false, 20, new List<SettledBet>())); 
             Assert.AreEqual(false, results.IsHighlyUnusual);
         }
 
@@ -50,7 +50,7 @@ namespace WilliamHill.UnitTest.RiskProfiler
         public void IsBetUnusual_true()
         {
             var betProfiler = Moq.Create<BetProfiler>();
-            var results = betProfiler.GetProfile(new UnsettledBet() { Stake = 1000}, new CustomerProfile(1, false, 20));
+            var results = betProfiler.GetProfile(new UnsettledBet() { Stake = 1000}, new CustomerProfile(1, false, 20, new List<SettledBet>()));
             Assert.AreEqual(true, results.IsUnusual);
         }
 
@@ -59,7 +59,7 @@ namespace WilliamHill.UnitTest.RiskProfiler
         {
 
             var betProfiler = Moq.Create<BetProfiler>();
-            var results = betProfiler.GetProfile(new UnsettledBet() { Stake = 100}, new CustomerProfile(1, false, 20));
+            var results = betProfiler.GetProfile(new UnsettledBet() { Stake = 100}, new CustomerProfile(1, false, 20, new List<SettledBet>()));
             Assert.AreEqual(false, results.IsUnusual);
         }
 
@@ -69,7 +69,7 @@ namespace WilliamHill.UnitTest.RiskProfiler
         {
 
             var betProfiler = Moq.Create<BetProfiler>();
-            var results = betProfiler.GetProfile(new UnsettledBet() { Stake = 100 }, new CustomerProfile(1, true, 20));
+            var results = betProfiler.GetProfile(new UnsettledBet() { Stake = 100 }, new CustomerProfile(1, true, 20, new List<SettledBet>()));
             Assert.AreEqual(true, results.IsRisk);
         }
 
@@ -78,7 +78,7 @@ namespace WilliamHill.UnitTest.RiskProfiler
         {
 
             var betProfiler = Moq.Create<BetProfiler>();
-            var results = betProfiler.GetProfile(new UnsettledBet() { Stake = 100 }, new CustomerProfile(1, false, 20));
+            var results = betProfiler.GetProfile(new UnsettledBet() { Stake = 100 }, new CustomerProfile(1, false, 20, new List<SettledBet>()));
             Assert.AreEqual(false, results.IsRisk);
         }
     }
