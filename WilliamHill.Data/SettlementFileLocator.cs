@@ -1,4 +1,8 @@
 using System;
+using System.IO;
+using System.Reflection;
+using System.Runtime.Remoting.Channels;
+using System.Web;
 
 namespace WilliamHill.Data
 {
@@ -6,11 +10,14 @@ namespace WilliamHill.Data
     {
         public String LocateSettleCsv
         {
-            get { return @"Settled.csv"; }
+            get { return HttpContext.Current.Server.MapPath("~/Settled.csv"); }
         }
 
         public String LocateUnSettleCsv {
-            get { return @"UnSettled.csv"; }
+            get
+            {
+                return HttpContext.Current.Server.MapPath("~/UnSettled.csv"); 
+            }
         }
     }
 }

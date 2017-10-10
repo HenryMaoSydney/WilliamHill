@@ -102,9 +102,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WilliamHill\WilliamHill.csproj">
+    <ProjectReference Include="..\WilliamHill\RiskApp.UI.csproj">
       <Project>{18124DE8-2A28-4D9E-A22F-3ECEC50BAB5F}</Project>
-      <Name>WilliamHill</Name>
+      <Name>RiskApp.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

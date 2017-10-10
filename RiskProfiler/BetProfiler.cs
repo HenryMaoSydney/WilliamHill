@@ -1,39 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Globalization;
 using System.Text;
-using System.Threading.Tasks;
-using WilliamHill.Data;
 using WilliamHill.Data.Models;
 
 namespace WilliamHill.RiskProfiler
 {
-    public class BetProfiler
+    public class BetProfiler : IBetProfiler
     {
-       
-        public BetProfiler( )
+
+        public BetProfile GetProfile(UnsettledBet bet, CustomerProfile customerProfile)
         { 
+            return new BetProfile(CalculateIsBetLargeSum(bet),
+                CalculateIsHighlyUnusual(bet, customerProfile),
+                CalculateIsUnusual(bet, customerProfile),
+                CalculateIsRisk(customerProfile));
         }
 
 
-        public bool IsBetLargeSum(UnsettledBet bet)
+        private bool CalculateIsBetLargeSum(UnsettledBet bet)
         {
             return bet.ToWin >= 1000;
         }
 
-        public bool IsHighlyUnusual(UnsettledBet bet, CustomerProfile customerProfile)
+        private bool CalculateIsHighlyUnusual(UnsettledBet bet, CustomerProfile customerProfile)
         {
             return bet.Stake >= customerProfile.AverageBet * 60;
         }
 
-        public bool IsUnusual(UnsettledBet bet, CustomerProfile customerProfile)
+        private bool CalculateIsUnusual(UnsettledBet bet, CustomerProfile customerProfile)
         {
             return bet.Stake >= customerProfile.AverageBet * 10;
         }
 
-        public bool IsRisk( CustomerProfile customerProfile)
+        private bool CalculateIsRisk(CustomerProfile customerProfile)
         {
-            return customerProfile.IsUpComingWiningAtUnusualRate;
+            return customerProfile.IsWiningAtUnusualRate;
         }
     }
 }

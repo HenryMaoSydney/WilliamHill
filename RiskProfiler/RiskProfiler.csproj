@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IBetProfiler.cs" />
+    <Compile Include="Model\BetProfile.cs" />
     <Compile Include="BetProfiler.cs" />
-    <Compile Include="CustomerProfile.cs" />
+    <Compile Include="Model\CustomerProfile.cs" />
     <Compile Include="CustomerProfiler.cs" />
     <Compile Include="ICustomerProfiler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

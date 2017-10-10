@@ -2,6 +2,6 @@
 {
     public interface ICustomerProfiler
     {
-        CustomerProfile GetProfiler(int customerId);
+        CustomerProfile GetProfile(int customerId);
     }
 }

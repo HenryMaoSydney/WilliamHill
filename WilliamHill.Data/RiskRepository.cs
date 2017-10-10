@@ -29,5 +29,10 @@ namespace WilliamHill.Data
         {
             return _riskDataContext.UnsettledBets.Where(s => s.CustomerId == customerId);
         }
+
+        public IEnumerable<UnsettledBet> GetAllUnSettledBets()
+        {
+            return _riskDataContext.UnsettledBets;
+        }
     }
 }

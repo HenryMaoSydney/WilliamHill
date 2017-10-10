@@ -8,5 +8,7 @@ namespace WilliamHill.Data
         IEnumerable<int> GetCustomers();
         IEnumerable<SettledBet> GetSettledBets(int customerId);
         IEnumerable<UnsettledBet> GetUnSettledBets(int customerId);
+
+        IEnumerable<UnsettledBet> GetAllUnSettledBets();
     }
 }

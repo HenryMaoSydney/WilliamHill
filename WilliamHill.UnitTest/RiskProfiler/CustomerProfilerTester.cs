@@ -25,7 +25,7 @@ namespace WilliamHill.UnitTest.RiskProfiler
            
             var cp = Moq.Create<CustomerProfiler>();
 
-            var results = cp.GetProfiler(1);
+            var results = cp.GetProfile(1);
 
             Assert.AreEqual(true, results.IsWiningAtUnusualRate);
         }
@@ -42,7 +42,7 @@ namespace WilliamHill.UnitTest.RiskProfiler
 
             var cp = Moq.Create<CustomerProfiler>();
 
-            var results = cp.GetProfiler(1);
+            var results = cp.GetProfile(1);
 
             Assert.AreEqual(false, results.IsWiningAtUnusualRate);
         }
@@ -54,7 +54,7 @@ namespace WilliamHill.UnitTest.RiskProfiler
 
             var cp = Moq.Create<CustomerProfiler>();
 
-            var results = cp.GetProfiler(1);
+            var results = cp.GetProfile(1);
 
             Assert.AreEqual(false, results.IsWiningAtUnusualRate);
         }
@@ -71,7 +71,7 @@ namespace WilliamHill.UnitTest.RiskProfiler
 
             var cp = Moq.Create<CustomerProfiler>();
 
-            var results = cp.GetProfiler(1);
+            var results = cp.GetProfile(1);
 
             Assert.AreEqual(20, results.AverageBet);
         }
@@ -85,7 +85,7 @@ namespace WilliamHill.UnitTest.RiskProfiler
 
             var cp = Moq.Create<CustomerProfiler>();
 
-            var results = cp.GetProfiler(1);
+            var results = cp.GetProfile(1);
 
             Assert.AreEqual(0, results.AverageBet);
         }

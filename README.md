@@ -20,3 +20,9 @@ assumption: if customer have no settled bet, it is unsusal ( average bet is 0).
 Unsettled.csv seems not conaining wining/or not information, if we use ToWin as wining. this causes customer with unsettled bets be flagged as risky.
  
  
+ Step 3 - The UI
+
+ Using web API.
+ Allow user 
+ 1) Query Customer's Risk Profile ( By Customer id)
+ 2) Query Bet's Risk Profile ( By Bet id)
