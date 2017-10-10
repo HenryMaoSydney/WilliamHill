@@ -17,22 +17,22 @@ namespace WilliamHill.Data
             var settledCustomers = _riskDataContext.SettledBets.Select(s => s.CustomerId);
             var unsettledCustomers = _riskDataContext.UnsettledBets.Select(s => s.CustomerId);
 
-            return settledCustomers.Union(unsettledCustomers).Distinct();
+            return settledCustomers.Union(unsettledCustomers).Distinct().ToList();
         }
 
         public IEnumerable<SettledBet> GetSettledBets(int customerId)
         {
-            return _riskDataContext.SettledBets.Where (s => s.CustomerId == customerId) ;
+            return _riskDataContext.SettledBets.Where (s => s.CustomerId == customerId).ToList();
         }
 
         public IEnumerable<UnsettledBet> GetUnSettledBets(int customerId)
         {
-            return _riskDataContext.UnsettledBets.Where(s => s.CustomerId == customerId);
+            return _riskDataContext.UnsettledBets.Where(s => s.CustomerId == customerId).ToList();
         }
 
-        public IEnumerable<UnsettledBet> GetAllUnSettledBets()
+        public List<UnsettledBet> GetAllUnSettledBets()
         {
-            return _riskDataContext.UnsettledBets;
+            return _riskDataContext.UnsettledBets.ToList();
         }
     }
 }

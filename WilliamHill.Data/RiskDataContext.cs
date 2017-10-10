@@ -22,7 +22,7 @@ namespace WilliamHill.Data
             SettledBets = new List<SettledBet>();
             UnsettledBets = new List<UnsettledBet>();
             ReadSettledBetsCSV(_settlementFileLocator.LocateSettleCsv);
-            ReadSettledBetsCSV(_settlementFileLocator.LocateUnSettleCsv);
+            ReadUnSettledBetsCSV(_settlementFileLocator.LocateUnSettleCsv);
         }
 
 

@@ -1,5 +1,4 @@
 ﻿using System.Web.Http;
-using System.Web.Mvc;
 using WilliamHill.RiskProfiler;
 
 namespace WilliamHill.Controllers
@@ -14,11 +13,11 @@ namespace WilliamHill.Controllers
         }
 
         /// <summary>
-        /// Get RiskProfile for Customer
+        ///     Get RiskProfile for Customer
         /// </summary>
         /// <param name="CustomerId"></param>
         /// <returns></returns>
-        [System.Web.Http.Route("CustomerRiskProfiler/{CustomerId}")]
+        [Route("CustomerRiskProfiler/{CustomerId}")]
         public string GetRiskProfiler(int CustomerId)
         {
             var customerProfile = _customerProfiler.GetProfile(CustomerId);
