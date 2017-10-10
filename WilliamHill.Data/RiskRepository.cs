@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using WilliamHill.Data.Models;
 
 namespace WilliamHill.Data
@@ -11,26 +12,18 @@ namespace WilliamHill.Data
         {
             _riskDataContext = riskDataContext;
         }
-
-        public List<int> GetCustomers()
-        {
-            var settledCustomers = _riskDataContext.SettledBets.Select(s => s.CustomerId);
-            var unsettledCustomers = _riskDataContext.UnsettledBets.Select(s => s.CustomerId);
-
-            return settledCustomers.Union(unsettledCustomers).Distinct().ToList();
-        }
-
-        public List<SettledBet> GetSettledBets(int customerId)
+        
+        public async Task<List<SettledBet>> GetSettledBets(int customerId)
         {
             return _riskDataContext.SettledBets.Where (s => s.CustomerId == customerId).ToList();
         }
 
-        public List<UnsettledBet> GetUnSettledBets(int customerId)
+        public async Task<List<UnsettledBet>> GetUnSettledBets(int customerId)
         {
             return _riskDataContext.UnsettledBets.Where(s => s.CustomerId == customerId).ToList();
         }
 
-        public List<UnsettledBet> GetAllUnSettledBets()
+        public async Task<List<UnsettledBet>> GetAllUnSettledBets()
         {
             return _riskDataContext.UnsettledBets.ToList();
         }

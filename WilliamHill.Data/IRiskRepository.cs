@@ -1,14 +1,14 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using WilliamHill.Data.Models;
 
 namespace WilliamHill.Data
 {
     public interface IRiskRepository
     {
-        List<int> GetCustomers();
-        List<SettledBet> GetSettledBets(int customerId);
-        List<UnsettledBet> GetUnSettledBets(int customerId);
+          Task<List<SettledBet>> GetSettledBets(int customerId);
+          Task<List<UnsettledBet>> GetUnSettledBets(int customerId);
 
-        List<UnsettledBet> GetAllUnSettledBets();
+          Task<List<UnsettledBet>> GetAllUnSettledBets();
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using WilliamHill.Data;
 using WilliamHill.Data.Models;
 
@@ -14,9 +15,9 @@ namespace WilliamHill.RiskProfiler
             _riskRepository = riskRepository;
         }
 
-        public CustomerProfile GetProfile(int customerId)
+        public async Task<CustomerProfile> GetProfile(int customerId)
         {
-            var settledBet = _riskRepository.GetSettledBets(customerId);
+            var settledBet = await _riskRepository.GetSettledBets(customerId);
 
             return new CustomerProfile(customerId, 
                 CalculateWiningAtUnusualRate(settledBet),

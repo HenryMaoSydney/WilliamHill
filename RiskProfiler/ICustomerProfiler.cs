@@ -1,7 +1,9 @@
-﻿namespace WilliamHill.RiskProfiler
+﻿using System.Threading.Tasks;
+
+namespace WilliamHill.RiskProfiler
 {
     public interface ICustomerProfiler
     {
-        CustomerProfile GetProfile(int customerId);
+          Task<CustomerProfile> GetProfile(int customerId);
     }
 }

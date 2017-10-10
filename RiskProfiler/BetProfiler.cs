@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Text;
+using System.Threading.Tasks;
 using WilliamHill.Data.Models;
 
 namespace WilliamHill.RiskProfiler
@@ -8,7 +9,7 @@ namespace WilliamHill.RiskProfiler
     public class BetProfiler : IBetProfiler
     {
 
-        public BetProfile GetProfile(UnsettledBet bet, CustomerProfile customerProfile)
+        public async Task<BetProfile> GetProfile(UnsettledBet bet, CustomerProfile customerProfile)
         { 
             return new BetProfile(CalculateIsBetLargeSum(bet),
                 CalculateIsHighlyUnusual(bet, customerProfile),

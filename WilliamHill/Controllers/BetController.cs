@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using WilliamHill.Data;
 using WilliamHill.RiskProfiler;
@@ -31,14 +32,14 @@ namespace WilliamHill.Controllers
         /// <returns></returns>
         [HttpGet]
         [System.Web.Http.Route("DisplayAllUnsettledBetWithRisk")]
-        public List<BetRiskModel> DisplayAllUnsettledBetWithRisk()
+        public async Task<List<BetRiskModel>> DisplayAllUnsettledBetWithRisk()
         {
-            var unsettledbets = _riskRepository.GetAllUnSettledBets();
+            var unsettledbets = await _riskRepository.GetAllUnSettledBets();
             List <BetRiskModel> betRisks= new List<BetRiskModel>();
             foreach (var bet in unsettledbets)
             {
-                CustomerProfile customerProfile = _customerProfiler.GetProfile(bet.CustomerId);
-                BetProfile betProfile  = _betProfiler.GetProfile(bet, customerProfile);
+                CustomerProfile customerProfile = await _customerProfiler.GetProfile(bet.CustomerId);
+                BetProfile betProfile  = await _betProfiler.GetProfile(bet, customerProfile);
                 betRisks.Add( new BetRiskModel( bet, betProfile.Status));
             }
 

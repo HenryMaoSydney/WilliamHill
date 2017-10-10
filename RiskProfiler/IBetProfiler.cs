@@ -1,9 +1,10 @@
-﻿using WilliamHill.Data.Models;
+﻿using System.Threading.Tasks;
+using WilliamHill.Data.Models;
 
 namespace WilliamHill.RiskProfiler
 {
     public interface IBetProfiler
     {
-        BetProfile GetProfile(UnsettledBet bet, CustomerProfile customerProfile);
+        Task<BetProfile> GetProfile(UnsettledBet bet, CustomerProfile customerProfile);
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Web.Http;
 using WilliamHill.Data.Models;
 using WilliamHill.RiskProfiler;
@@ -21,9 +22,9 @@ namespace WilliamHill.Controllers
         /// <param name="CustomerId"></param>
         /// <returns></returns>
         [Route("CustomerRiskProfiler/{CustomerId}")]
-        public CustomerProfile GetRiskProfiler(int CustomerId)
+        public async Task<CustomerProfile> GetRiskProfiler(int CustomerId)
         {
-            var customerProfile = _customerProfiler.GetProfile(CustomerId); 
+            var customerProfile = await _customerProfiler.GetProfile(CustomerId); 
 
             return customerProfile;
         }

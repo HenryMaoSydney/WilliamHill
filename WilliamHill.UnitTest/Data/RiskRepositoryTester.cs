@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using NUnit.Framework;
 using WilliamHill.Data;
 using WilliamHill.Data.Models;
@@ -10,28 +11,9 @@ namespace WilliamHill.UnitTest.Data
     [TestFixture]
     public class RiskRepositoryTester : TestBase
     {
+      
         [TestCase]
-        public void GetCustomerTest_Success()
-        {
-            Moq.Mock<IRiskDataContext>().Setup(ctx => ctx.SettledBets).Returns(new List<SettledBet>
-            {
-                new SettledBet {CustomerId = 1},
-                new SettledBet {CustomerId = 2}
-            });
-            Moq.Mock<IRiskDataContext>().Setup(ctx => ctx.UnsettledBets).Returns(new List<UnsettledBet>
-            {
-                new UnsettledBet {CustomerId = 1},
-                new UnsettledBet {CustomerId = 3}
-            });
-            var rep = Moq.Create<RiskRepository>();
-
-            var results = rep.GetCustomers();
-
-            Assert.AreEqual(3, results.Count());
-        }
-
-        [TestCase]
-        public void GetGetSettledBets_Success()
+        public async Task GetGetSettledBets_Success()
         {
             Moq.Mock<IRiskDataContext>().Setup(ctx => ctx.SettledBets).Returns(new List<SettledBet>
             {
@@ -41,16 +23,16 @@ namespace WilliamHill.UnitTest.Data
             });
             var rep = Moq.Create<RiskRepository>();
 
-            var results = rep.GetSettledBets(1);
+            var results = await rep.GetSettledBets(1);
             Assert.AreEqual(2, results.Count());
 
 
-            results = rep.GetSettledBets(2);
+            results = await rep.GetSettledBets(2);
             Assert.AreEqual(1, results.Count());
         }
 
         [TestCase]
-        public void GetUnGetSettledBets_Success()
+        public async Task GetUnGetSettledBets_Success()
         {
             Moq.Mock<IRiskDataContext>().Setup(ctx => ctx.UnsettledBets).Returns(new List<UnsettledBet>
             {
@@ -60,10 +42,10 @@ namespace WilliamHill.UnitTest.Data
             });
             var rep = Moq.Create<RiskRepository>();
 
-            var results = rep.GetUnSettledBets(1);
+            var results = await rep.GetUnSettledBets(1);
             Assert.AreEqual(2, results.Count());
 
-            results = rep.GetUnSettledBets(2);
+            results = await rep.GetUnSettledBets(2);
             Assert.AreEqual(1, results.Count());
         }
     }
