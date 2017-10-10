@@ -5,9 +5,9 @@ namespace WilliamHill.Data
 {
     public interface IRiskRepository
     {
-        IEnumerable<int> GetCustomers();
-        IEnumerable<SettledBet> GetSettledBets(int customerId);
-        IEnumerable<UnsettledBet> GetUnSettledBets(int customerId);
+        List<int> GetCustomers();
+        List<SettledBet> GetSettledBets(int customerId);
+        List<UnsettledBet> GetUnSettledBets(int customerId);
 
         List<UnsettledBet> GetAllUnSettledBets();
     }

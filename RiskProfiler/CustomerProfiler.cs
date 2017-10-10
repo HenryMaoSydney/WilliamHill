@@ -18,8 +18,10 @@ namespace WilliamHill.RiskProfiler
         {
             var settledBet = _riskRepository.GetSettledBets(customerId);
 
-            return new CustomerProfile(customerId, CalculateWiningAtUnusualRate(settledBet),
-                CalculateAverageBet(settledBet)); 
+            return new CustomerProfile(customerId, 
+                CalculateWiningAtUnusualRate(settledBet),
+                CalculateAverageBet(settledBet),
+                settledBet); 
         }
 
         private bool CalculateWiningAtUnusualRate(IEnumerable<SettledBet> settledBets)

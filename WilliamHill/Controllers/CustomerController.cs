@@ -1,8 +1,11 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Generic;
+using System.Web.Http;
+using WilliamHill.Data.Models;
 using WilliamHill.RiskProfiler;
 
 namespace WilliamHill.Controllers
-{
+{ 
+
     public class CustomerController : ApiController
     {
         private readonly ICustomerProfiler _customerProfiler;
@@ -18,10 +21,11 @@ namespace WilliamHill.Controllers
         /// <param name="CustomerId"></param>
         /// <returns></returns>
         [Route("CustomerRiskProfiler/{CustomerId}")]
-        public string GetRiskProfiler(int CustomerId)
+        public CustomerProfile GetRiskProfiler(int CustomerId)
         {
-            var customerProfile = _customerProfiler.GetProfile(CustomerId);
-            return customerProfile.Status;
+            var customerProfile = _customerProfiler.GetProfile(CustomerId); 
+
+            return customerProfile;
         }
     }
 }
